@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff8ee" />
+    <title>Codex Q Pet</title>
+    <style>
+:root { font-family: 'Noto Sans SC', sans-serif; color: #1d2e2b; background: #f6efe5; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; display: grid; place-items: center; background: radial-gradient(circle at 78% 14%, #ffeacb 0 8%, transparent 23%), linear-gradient(135deg, #f8f1e8, #f3eadf); }
+.desk-shell { position: relative; width: min(100%, 680px); min-height: 720px; overflow: hidden; padding: 58px 58px 29px; background: #fffaf3; box-shadow: 0 24px 70px #5d46301e; }
+.desk-shell::after { content: ''; position: absolute; width: 280px; height: 280px; border: 1px solid #e7b37177; border-radius: 50%; right: -155px; top: -130px; }
+.window-dots { position: absolute; display: flex; gap: 7px; top: 23px; left: 27px; }.window-dots i { width: 8px; height: 8px; border-radius: 50%; background: #ecb55d; }.window-dots i:nth-child(2){background:#df8b7b}.window-dots i:nth-child(3){background:#a4c7a1}
+header { position: relative; z-index: 2; }.eyebrow { margin: 0 0 12px; color: #c78047; font: 12px/1 'DM Mono', monospace; letter-spacing: .12em; }.eyebrow::before { content: '// '; }h1 { margin: 0; font-size: clamp(31px, 6vw, 46px); line-height: 1.22; letter-spacing: -.06em; font-weight: 900; }h1 em { color: #d47a61; font-style: normal; }.subtitle { margin: 16px 0 0; color: #6d7772; font-size: 14px; }
+.pet-stage { position: relative; height: 470px; margin: 4px -58px 0; }.message { position: absolute; z-index: 5; right: 58px; top: 49px; width: 202px; min-height: 76px; padding: 12px 17px; border: 1px solid #e7c5ab; border-radius: 20px 20px 4px 20px; background: #fff; box-shadow: 0 10px 22px #c0845c1c; color: #55615d; cursor: pointer; font: 500 13px/1.6 'Noto Sans SC'; text-align: left; transition: transform .2s; }.message:hover { transform: translateY(-3px); }.message b { color:#d47a61; display:block; font-size:15px; }
+.pet { position: absolute; z-index: 2; bottom: 6px; left: 50%; width: 280px; height: 395px; transform: translateX(-50%); border: 0; background: none; cursor: pointer; }.pet:focus-visible { outline: 3px solid #dd9978; border-radius: 40%; }.head { position:absolute; z-index:3; width:177px; height:183px; left:51px; top:53px; border-radius: 45% 45% 47% 47%; background:#f6cdb6; box-shadow: inset 0 -8px #edbaa3; }.back-hair { position:absolute; z-index:1; left:34px; top:30px; width:214px; height:281px; border-radius: 48% 48% 27% 27%; background:#28282b; }.back-hair::after { content:''; position:absolute; left:9px; bottom:0; width:196px; height:160px; border-radius:0 0 46% 42%; background:linear-gradient(90deg,#242427,#373336); }.hair { display:block; }.fringe { position:absolute; z-index:5; top:-14px; background:#28282b; transform-origin: top; }.f1 { left:3px; width:72px; height:70px; border-radius: 75% 20% 70% 20%; transform:rotate(-13deg); }.f2 { left:46px; width:48px; height:62px; border-radius: 60% 20% 80% 23%; transform:rotate(-5deg); }.f3 { left:81px; width:47px; height:62px; border-radius: 20% 65% 25% 80%; transform:rotate(7deg); }.f4 { left:114px; width:62px; height:71px; border-radius: 20% 75% 18% 80%; transform:rotate(15deg); }.ear { position:absolute; z-index:2; top:90px; width:25px; height:37px; background:#f3c2ab; border-radius:50%; }.left-ear{left:-12px}.right-ear{right:-12px}.brow{position:absolute;z-index:6;top:72px;width:25px;height:6px;border-top:3px solid #463733;border-radius:50%}.brow-left{left:31px;transform:rotate(-4deg)}.brow-right{right:31px;transform:rotate(4deg)}.eye { position:absolute; z-index:6; top:87px; width:20px; height:18px; background:#392d2e; border-radius:50%; }.eye i{position:absolute;width:6px;height:6px;border-radius:50%;background:white;top:3px;left:4px}.eye-left{left:42px}.eye-right{right:42px}.glasses{position:absolute;z-index:7;top:78px;left:17px;width:144px;height:53px}.lens{position:absolute;top:0;width:64px;height:48px;border:2px solid #3e4143;border-radius:48%}.left-lens{left:0}.right-lens{right:0}.bridge{position:absolute;left:63px;top:20px;width:18px;border-top:2px solid #3e4143}.nose{position:absolute;z-index:6;top:117px;left:84px;width:9px;height:9px;border-right:2px solid #db9f87;border-bottom:2px solid #db9f87;border-radius:0 0 7px}.mouth{position:absolute;z-index:6;left:70px;top:143px;width:38px;height:14px;border-bottom:3px solid #cf7780;border-radius:0 0 50% 50%}.blush{position:absolute;z-index:5;top:129px;width:28px;height:12px;border-radius:50%;background:#ed9ba24d}.blush-left{left:20px}.blush-right{right:20px}
+.neck{position:absolute;z-index:2;top:220px;left:118px;width:42px;height:34px;background:#f3c2ab}.body{position:absolute;z-index:3;left:54px;top:238px;width:173px;height:126px;border-radius:48px 48px 13px 13px;background:#f6f5ed;box-shadow:inset 0 0 0 2px #e7e3d9}.collar{position:absolute;top:0;width:60px;height:41px;background:#fff;border-bottom:1px solid #d3d0c8}.collar.left{left:29px;clip-path:polygon(0 0,100% 0,62% 100%)}.collar.right{right:29px;clip-path:polygon(0 0,100% 0,38% 100%)}.shirt-line{position:absolute;left:85px;top:30px;height:82px;border-left:1px solid #d4d2cb}.button-dot{position:absolute;left:82px;width:6px;height:6px;border-radius:50%;background:#d0b696}.one{top:57px}.two{top:82px}.arm{position:absolute;z-index:2;top:258px;width:39px;height:99px;border-radius:25px;background:#f3c2ab}.arm-left{left:27px;transform:rotate(12deg)}.arm-right{right:27px;transform:rotate(-12deg)}.laptop{position:absolute;z-index:5;left:40px;bottom:0;width:200px;height:76px;border:3px solid #474f50;border-bottom-width:8px;border-radius:13px 13px 8px 8px;background:#9ab1ab;box-shadow:0 7px 0 #697d78}.laptop-logo{display:grid;place-items:center;width:30px;height:30px;margin:16px auto;border-radius:50%;background:#dce9df;color:#617a72;font:bold 21px/30px serif}.spark{position:absolute;z-index:6;color:#e1a05e;opacity:0}.sparkle-a{top:48px;left:14px;font-size:26px}.sparkle-b{top:152px;right:4px;font-size:18px}.heart{top:96px;right:9px;color:#d67a7c;font-size:20px}
+.desk{position:absolute;left:0;right:0;bottom:0;height:55px;background:#d5a176;box-shadow:inset 0 8px #e5bd91}.desk span{position:absolute;width:100%;top:28px;border-top:2px solid #bd865d;opacity:.5}footer{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;color:#7d8781;font:11px 'DM Mono',monospace}.status{display:flex;align-items:center;gap:7px}.status i{width:7px;height:7px;border-radius:50%;background:#74a870;box-shadow:0 0 0 4px #74a87026}.clock{letter-spacing:.08em}
+.pet:hover .head{animation:tilt .7s ease-in-out infinite alternate}.cheering .spark{animation:pop .85s ease-out}.cheering .arm-right{animation:wave .45s ease-in-out 3}.cheering .mouth{height:18px}.cheering .eye{height:8px;top:93px}.cheering .eye i{display:none}@keyframes tilt{to{transform:rotate(3deg) translateY(-3px)}}@keyframes pop{0%{opacity:0;transform:translateY(15px) scale(.4)}35%{opacity:1}100%{opacity:0;transform:translateY(-25px) scale(1.25)}}@keyframes wave{50%{transform:rotate(-32deg) translateY(-7px)}}
+@media(max-width:520px){.desk-shell{min-height:700px;padding:52px 30px 25px}.pet-stage{margin-left:-30px;margin-right:-30px}.message{right:26px;top:34px;width:176px}.pet{transform:translateX(-50%) scale(.9);transform-origin:bottom}.subtitle{max-width:220px}}
+
+    </style>
+  </head>
+  <body>
+    <main class="desk-shell">
+      <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <header>
+        <p class="eyebrow">CODEX DESK COMPANION</p>
+        <h1>小柚正在陪你<br /><em>写代码。</em></h1>
+        <p class="subtitle">点击她，收下一句小小的鼓励。</p>
+      </header>
+
+      <section class="pet-stage" aria-label="互动 Q 版桌宠">
+        <button class="message" id="message" type="button" aria-label="点击桌宠获取鼓励">
+          <span id="messageText">今天也要从容解决 bug！</span>
+          <b>↗</b>
+        </button>
+        <button class="pet" id="pet" type="button" aria-label="小柚桌宠，点击互动">
+          <span class="spark sparkle-a">✦</span><span class="spark sparkle-b">✦</span><span class="spark heart">♥</span>
+          <span class="hair back-hair"></span>
+          <span class="body"><span class="collar left"></span><span class="collar right"></span><span class="shirt-line"></span><span class="button-dot one"></span><span class="button-dot two"></span></span>
+          <span class="neck"></span>
+          <span class="head">
+            <span class="ear left-ear"></span><span class="ear right-ear"></span>
+            <span class="hair fringe f1"></span><span class="hair fringe f2"></span><span class="hair fringe f3"></span><span class="hair fringe f4"></span>
+            <span class="brow brow-left"></span><span class="brow brow-right"></span>
+            <span class="eye eye-left"><i></i></span><span class="eye eye-right"><i></i></span>
+            <span class="glasses"><i class="lens left-lens"></i><i class="bridge"></i><i class="lens right-lens"></i></span>
+            <span class="nose"></span><span class="mouth"></span><span class="blush blush-left"></span><span class="blush blush-right"></span>
+          </span>
+          <span class="arm arm-left"></span><span class="arm arm-right"></span>
+          <span class="laptop"><span class="laptop-logo">⌘</span></span>
+        </button>
+        <div class="desk" aria-hidden="true"><span></span></div>
+      </section>
+
+      <footer>
+        <span class="status"><i></i> 在线陪伴中</span>
+        <span class="clock" id="clock"></span>
+      </footer>
+    </main>
+    <script>
+const pet = document.querySelector('#pet');
+const message = document.querySelector('#message');
+const messageText = document.querySelector('#messageText');
+const clock = document.querySelector('#clock');
+
+const encouragements = [
+  '今天也要从容解决 bug！',
+  '喝口水，再继续闪闪发光吧。',
+  '这个报错，我们一起慢慢看。',
+  '已经做得很好啦，继续冲！',
+  '提交之前，记得给自己一个赞。'
+];
+let index = 0;
+
+function cheer() {
+  index = (index + 1) % encouragements.length;
+  messageText.textContent = encouragements[index];
+  pet.classList.remove('cheering');
+  void pet.offsetWidth;
+  pet.classList.add('cheering');
+}
+
+function updateClock() {
+  clock.textContent = new Intl.DateTimeFormat('zh-CN', { hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date());
+}
+
+pet.addEventListener('click', cheer);
+message.addEventListener('click', cheer);
+updateClock();
+setInterval(updateClock, 30000);
+
+    </script>
+  </body>
+</html>
