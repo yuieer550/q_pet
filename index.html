@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff8ee" />
+    <title>Codex Q Pet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="desk-shell">
+      <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <header>
+        <p class="eyebrow">CODEX DESK COMPANION</p>
+        <h1>小柚正在陪你<br /><em>写代码。</em></h1>
+        <p class="subtitle">点击她，收下一句小小的鼓励。</p>
+      </header>
+
+      <section class="pet-stage" aria-label="互动 Q 版桌宠">
+        <button class="message" id="message" type="button" aria-label="点击桌宠获取鼓励">
+          <span id="messageText">今天也要从容解决 bug！</span>
+          <b>↗</b>
+        </button>
+        <button class="pet" id="pet" type="button" aria-label="小柚桌宠，点击互动">
+          <span class="spark sparkle-a">✦</span><span class="spark sparkle-b">✦</span><span class="spark heart">♥</span>
+          <span class="hair back-hair"></span>
+          <span class="body"><span class="collar left"></span><span class="collar right"></span><span class="shirt-line"></span><span class="button-dot one"></span><span class="button-dot two"></span></span>
+          <span class="neck"></span>
+          <span class="head">
+            <span class="ear left-ear"></span><span class="ear right-ear"></span>
+            <span class="hair fringe f1"></span><span class="hair fringe f2"></span><span class="hair fringe f3"></span><span class="hair fringe f4"></span>
+            <span class="brow brow-left"></span><span class="brow brow-right"></span>
+            <span class="eye eye-left"><i></i></span><span class="eye eye-right"><i></i></span>
+            <span class="glasses"><i class="lens left-lens"></i><i class="bridge"></i><i class="lens right-lens"></i></span>
+            <span class="nose"></span><span class="mouth"></span><span class="blush blush-left"></span><span class="blush blush-right"></span>
+          </span>
+          <span class="arm arm-left"></span><span class="arm arm-right"></span>
+          <span class="laptop"><span class="laptop-logo">⌘</span></span>
+        </button>
+        <div class="desk" aria-hidden="true"><span></span></div>
+      </section>
+
+      <footer>
+        <span class="status"><i></i> 在线陪伴中</span>
+        <span class="clock" id="clock"></span>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
